@@ -61,7 +61,6 @@ namespace VolumeController
             // 
             // MainTimer
             // 
-            this.MainTimer.Enabled = true;
             this.MainTimer.Interval = 20;
             this.MainTimer.Tick += new System.EventHandler(this.MainTimer_Tick);
             // 

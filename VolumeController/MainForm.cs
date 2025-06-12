@@ -34,17 +34,21 @@ namespace VolumeController
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 Close();
 
                 return;
             }
 
             UpdateVolume(value);
+
+            MainTimer.Start();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            audioEndpointVolume.SetMasterVolumeLevelScalar(startVolume, Guid.Empty);
+            if (audioEndpointVolume != null)
+                audioEndpointVolume.SetMasterVolumeLevelScalar(startVolume, Guid.Empty);
         }
 
         private void MainTimer_Tick(object sender, EventArgs e)
